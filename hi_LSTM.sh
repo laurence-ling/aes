@@ -20,10 +20,10 @@ embed_type=$4
 
 echo $embed_type
 
-datadir=../baselines/nea/data/fold_${fold_id}
-trainfile=$datadir/train.tsv
-devfile=$datadir/dev.tsv
-testfile=$datadir/test.tsv
+datadir=../data/foldData/${fold_id}
+trainfile=$datadir/trainData.tsv
+devfile=$datadir/devData.tsv
+testfile=$datadir/testData.tsv
 
 if [ ! -d $checkdir/preds ]; then
 	mkdir -p $checkdir/preds
@@ -49,4 +49,4 @@ echo "Using embedding ${embeddingfile}"
  	--num_epochs $nb_epochs --batch_size 10  --rnn_type LSTM \
 	--lstm_units 100 --optimizer rmsprop --learning_rate 0.001 --dropout 0.5 \
 	--oov embedding --l2_value 0.01 --checkpoint_path $checkdir \
-	--train $trainfile --dev $devfile --test $testfile --prompt_id $prompt_id --train_flag --masked
+	--train $trainfile --dev $devfile --test $testfile --prompt_id $prompt_id --train_flag

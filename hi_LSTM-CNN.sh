@@ -20,10 +20,10 @@ embed_type=$4
 
 echo $embed_type
 
-datadir=../baselines/nea/data/fold_${fold_id}
-trainfile=$datadir/train.tsv
-devfile=$datadir/dev.tsv
-testfile=$datadir/test.tsv
+datadir=../data/foldData/${fold_id}
+trainfile=$datadir/trainData.tsv
+devfile=$datadir/devData.tsv
+testfile=$datadir/testData.tsv
 
 if [ ! -d $checkdir/preds ]; then
 	mkdir -p $checkdir/preds

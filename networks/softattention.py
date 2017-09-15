@@ -8,7 +8,7 @@ import sys
 import warnings
 
 from keras import backend as K
-from keras import activations, initializations, regularizers
+from keras import activations, initializers, regularizers
 from keras.engine.topology import Layer, InputSpec
 # from keras.layers.wrappers import Wrapper, TimeDistributed
 # from keras.layers.core import Dense
@@ -56,6 +56,9 @@ class Attention(Layer):
     def get_output_shape_for(self, input_shape):
         return (input_shape[0], input_shape[2])
     
+    def compute_output_shape(self, input_shape):
+        return (input_shape[0], input_shape[2])
+     
     def compute_mask(self, x, mask):
         return None
     
